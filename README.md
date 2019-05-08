@@ -77,4 +77,19 @@ A robot which is able to navigate the simulated environment, be able to complete
 	3.3.1 Rover must collect the rock sample with a success rate of 90%
 	3.3.2 Rover must collect the sample with the rock in full view of the onboard, forwadly mounted camera.
 
+### Notes
 
+- What do I need to determine? How to navigate throughout the environment.
+
+- Steering.steer_proportionally_to_mean_nav_angle() is currently the best steering and driving function
+
+
+### Problems to fix
+- Rover does not stop at a dead end. A proximity indicator is needed. Potentially integrate this with the navigation around obstacles
+- Rover drives into obstacles too easily. If an obstacle is in the middle of the rover's route, the average/ median angle to navigate by is still in the middle causing the rover to drive into the obstacle ahead. 
+
+### Problems FIXED
+- Slow steering response. Not very responsive to the wall
+
+- Driving.drive_to_specified_speed()
+	Throttle 0.6 and brake 0.1 are constantly on, providing a reasonable speed however always increasing. This also results in no increase in speed once the rover is stopped in manual mode.
