@@ -2,9 +2,9 @@
 
 ## Description
 
-drive_rover.py, decision.py and perception.py are the main 3 modules used to run a simulation in Unity environment called Roversim. 
+This project is derived from the NASA Human Exploration Rover Challenge which provides the participants with a simulated Martian environment within which the Curiosity Rover must collect rock samples for testing, whilst also mapping the previously unknown environment. 
 
-By running drive_rover.py in a terminal window, and the Roversim executable in Autonomous mode in another, the simulated rover is able to traverse an unknown martian terrain, record the environment onto a map, locate the rocks of interest and collect them. This project is based on the NASA Human Exploration Rover Challenge. 
+drive_rover.py, decision.py and perception.py are the main 3 modules used to run a simulation in Unity environment called Roversim. More information on the project including the set-up and how to run the code are included below.
 
 ## How to run the code
 
