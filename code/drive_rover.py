@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Do the necessary imports
 import argparse
 import shutil
@@ -19,9 +21,9 @@ import time
 
 # Import functions for perception and decision making
 from perception import perception_step
-from decision import decision_step
+from decision import Decision 
 from supporting_functions import update_rover, create_output_images
-# Initialize socketio server and Flask application 
+# Initialize socketio server and Flask application
 # (learn more at: https://python-socketio.readthedocs.io/en/latest/)
 sio = socketio.Server()
 app = Flask(__name__)
@@ -51,6 +53,15 @@ class RoverState():
         self.brake = 0 # Current brake value
         self.nav_angles = None # Angles of navigable terrain pixels
         self.nav_dists = None # Distances of navigable terrain pixels
+
+        # Added Rover functionality for navigation of Rover
+        self.nav_dist = None
+        self.nav_angles = None
+        self.obs_dist = None 
+        self.obs_angles = None
+        self.rock_dist = None
+        self.rock_angles = None
+
         self.ground_truth = ground_truth_3d # Ground truth worldmap
         self.mode = 'forward' # Current mode (can be forward or stop)
         self.throttle_set = 0.2 # Throttle setting when accelerating
@@ -110,13 +121,14 @@ def telemetry(sid, data):
 
             # Execute the perception and decision steps to update the Rover's state
             Rover = perception_step(Rover)
-            Rover = decision_step(Rover)
+            Rover = Decision.decision_step(Rover)
+            #Rover = decision_step(Rover)
 
             # Create output images to send to server
             out_image_string1, out_image_string2 = create_output_images(Rover)
 
             # The action step!  Send commands to the rover!
- 
+
             # Don't send both of these, they both trigger the simulator
             # to send back new telemetry so we must only send one
             # back in respose to the current telemetry data.
