@@ -86,7 +86,12 @@ A robot which is able to navigate the simulated environment, be able to complete
 
 ### Problems to fix
 - Rover does not stop at a dead end. A proximity indicator is needed. Potentially integrate this with the navigation around obstacles
+
 - Rover drives into obstacles too easily. If an obstacle is in the middle of the rover's route, the average/ median angle to navigate by is still in the middle causing the rover to drive into the obstacle ahead. 
+
+- Steering.steer_median_left_biased() is not able to determine a corect path with large rock in middle of the map. Photo in ./photos
+    - It also struggles to drive down a narrow path to the right as it is driving too quickly.
+    - It struggles with convexed wall when it approaches and drives straight into the wall 
 
 ### Problems FIXED
 - Slow steering response. Not very responsive to the wall
