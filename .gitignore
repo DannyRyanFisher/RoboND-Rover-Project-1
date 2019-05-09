@@ -1,5 +1,5 @@
-**.swp
-**.pyc
+code/**/swp
+code/**/pyc
 .DS_store
 code/__pycache__/
 code/.ipynb_checkpoints
