@@ -51,25 +51,21 @@ class Steering():
 
         return self.Rover
 
-    def steer_to_median_nav_angle(self):
+    def steer_to_mean_nav_angle(self):
 
         # The max nav angle is 0.8 in magnitude and therfore to achieve
         # the aximum steering angle value, it is necessary to divide the
         # Rover.steer value by 0.8.
 
-        self.Rover.steer = self.steer_angle_median * self.max_steer_value/0.8 
+        self.Rover.steer = self.steer_angle * self.max_steer_value/0.8 
 
         return self.Rover
 
-    def steer_median_biased_left(self):
+    def steer_mean_biased_left(self):
 
-        print("Actual average of nav angles", np.mean(self.Rover.nav_angles))
+        a = np.clip(self.Rover.nav_angles, -0.3, 0.8)
 
-        a = np.clip(self.Rover.nav_angles, -0.2, 0.8)
-
-        self.Rover.steer = (np.mean(a)*15*2)/0.8 
-
-        print("Clipped array average", np.mean(a))
+        self.Rover.steer = (np.mean(a)*15*1.9)/0.8 
 
         return 
 

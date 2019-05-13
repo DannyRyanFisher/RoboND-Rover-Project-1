@@ -3,6 +3,35 @@
 from rover_commands_2 import Proximity, Driving, Steering
 
 
+class Navigate():
+
+    def __init__(self, Rover):
+        self.Rover = Rover
+        self.steering_instance = Steering(Rover)
+        self.driving_instance = Driving(Rover)
+
+    def drive_and_steer(self):
+
+        self.Rover = \
+                self.steering_instance.steer_proportionally_to_mean_nav_angle()
+        self.Rover = self.driving_instance.drive_to_specified_speed(2)
+
+        return self.Rover
+
+    def drive_and_steer_responsively(self):
+
+        self.Rover = self.steering_instance.steer_to_mean_nav_angle()
+        self.Rover = self.driving_instance.drive_to_specified_speed(2)
+
+        return self.Rover
+
+    def drive_and_steer_left_biased(self):
+
+        self.Rover = self.steering_instance.steer_mean_biased_left()
+        self.Rover = self.driving_instance.drive_to_specified_speed(2)
+
+        return self.Rover
+'''
 class ThrottledDrive(Proximity, Driving):
 
     def __init__(self, Rover):
@@ -44,24 +73,4 @@ class ThrottledDrive(Proximity, Driving):
         self.turn_right()
 
         return
-
-class Navigate():
-
-    def __init__(self, Rover):
-        self.Rover = Rover
-        self.steering_instance = Steering(Rover)
-        self.driving_instance = Driving(Rover)
-
-    def drive_and_steer(self):
-
-        self.Rover = self.steering_instance.steer_proportionally_to_mean_nav_angle()
-        self.Rover = self.driving_instance.drive_to_specified_speed(2)
-
-        return self.Rover
-
-    def drive_and_steer_responsively(self):
-
-        self.Rover = self.steering_instance.steer_to_median_nav_angle()
-        self.Rover = self.driving_instance.drive_to_specified_speed(2)
-
-        return self.Rover
+'''

@@ -3,4 +3,5 @@
 .DS_store
 /code/__pycache__/
 /code/.ipynb_checkpoints
-
+/code/temp.py
+/code/switch_case_example.py
