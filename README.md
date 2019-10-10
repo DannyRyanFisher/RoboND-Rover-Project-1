@@ -10,18 +10,18 @@ There are two main files that this repository contains: drive_rover.py and Rover
 
 ### Setup the conda environment
 
-- Ensure Anaconda is installed. To install [Anaconda] (https://docs.anaconda.com/anaconda/install/) follow the appropriate links for your operating system.
+- Ensure Anaconda is installed. To install Anaconda (https://docs.anaconda.com/anaconda/install/) follow the appropriate links for your operating system.
 
 - With Anaconda installed, you will need to set up the environment which will run the code. To do this follow the following steps below in a temporary directory. 
-'''
 
-git clone https://github.com/ryan-keenan/RoboND-Python-Starterkit
 
-conda env create --file environment.yml -n myEnvironmentName   
+	git clone https://github.com/ryan-keenan/RoboND-Python-Starterkit
 
-conda activate myEnvironmentName
+	conda env create --file environment.yml -n myEnvironmentName   
 
-'''
+	conda activate myEnvironmentName
+
+
 - You now have an environment which is capable of runnning the repository code successfully and is isolated from your current computer environment.
 
 ### Install the Simulator
